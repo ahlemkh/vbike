@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <title>Apricot v 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link href="assets/js/iCheck/flat/all.css" rel="stylesheet">
+    <link href="assets/js/iCheck/line/all.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/switch/bootstrap-switch.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+
+
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+
+    <style>#map { 
+        height: 500px; }
+      </style>
+</head>
+
+<body>
+         <!-- Preloader -->
+         <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="entypo-menu"></span>
+                </button>
+               
+
+                <div id="logo-mobile" class="visible-xs">
+                    <h1>
+                        <span>v1</span>
+                    </h1>
+                </div>
+
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    </li>
+
+                </ul>
+                <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                    <ul class="date-top">
+                        <li class="entypo-calendar" style="margin-right:5px"></li>
+                        <li id="Date"></li>
+
+
+                    </ul>
+
+                    <ul id="digital-clock" class="digital">
+                        <li class="entypo-clock" style="margin-right:5px"></li>
+                        <li class="hour"></li>
+                        <li>:</li>
+                        <li class="min"></li>
+                        <li>:</li>
+                        <li class="sec"></li>
+                        <li class="meridiem"></li>
+                    </ul>
+    
+                </div>
+
+                <ul style="margin-right:0;" class="nav navbar-nav navbar-right" id="admin_con" hidden>
+                    <li >
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            
+                        </a>
+                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                            <li>
+                                <a href="http://localhost/project/vbike/profile.html">
+                                    <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" id="logout">
+                                    <span class="entypo-logout"></span>&#160;&#160;Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+       <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+            <h1>VBike
+                <span>v1</span>
+            </h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>Dashboard</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="add_bike.html" title="Blog App">
+                                <i class="icon-document-edit"></i>
+                                <span>Add Bike</span>
+
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="table_bike.html" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>bike table</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="tooltip-tip" href="table_client.html" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>client table</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="topnav menu-left-nest">
+
+
+                        <li>
+                            <a class="tooltip-tip " href="sign_up.html" title="login">
+                                <i class="icon-download"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+
+            <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+             
+
+
+            <div class="content-wrap">
+                <div class="col-sm-12">
+                    <div class="nest" id="basicClose">
+                        <div class="title-alt">
+                            <h6>Add a bike</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#basicClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#basic">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+                
+                        </div>
+                       
+                
+                        <div class="body-nest" id="basic">
+                           
+                            <div class="form_center">
+                                <div style="padding:0;"  id="Gmap">
+                
+                                    <div id="test1"  class="gmap" style="width:auto;height:500px;"></div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="body-nest" id="basic">
+                           
+                            <div class="form_center">
+                    
+                                        
+                                <form role="form" enctype='multipart/form-data' id="add_bike_form" method="post" action="addbike.php">
+                                    <div class="form-group">
+                                        <label for="bike_name">Bike name </label>
+                                        <input type="text" placeholder="Enter the bike name" id="bike_name" name="bike_name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bike_model">Bike model</label>
+                                        <input type="text" placeholder="Enter the Bike model" id="bike_model" name="bike_model" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="matricule">Bike number</label>
+                                        <input type="number" placeholder="Enter the Bike number" id="matricule"  name="matricule" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input type="number" placeholder="Enter the Price" id="price" name="price" class="form-control" required>
+                                    </div>
+                                    <div class="form-group ">
+                                        <a class="btn btn-primary " id="show_map" href="#test1">
+                                            <span class="entypo-plus-squared"></span>&nbsp;&nbsp;Location</a>  
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="longitude">longitude</label>
+                                        <input type="number" step="any" id="longitude" name="longitude" class="form-control" val="" required>
+                                        <p class="help-block">to edit the longitude please  set the location by clicking on the location button</p>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="latitude">latitude</label>
+                                        <input type="number" step="any" id="latitude" name="latitude" class="form-control" val="" hidden required>
+                                        <p class="help-block">to edit the latitude please set the location by clicking on the location button</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image_bike">The bike image</label>
+                                        <input type="file" id="image_bike" name="image_bike" required>
+                                        <p class="help-block" id="help_image">add the bike image here.</p>
+                                    </div>
+                                    <button class="btn btn-info" id="btn_add_bike" name="submit" type="submit" >submit</button>
+                                </form>
+                            
+                                
+                            </div>
+                
+                
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+    <!-- END OF RIGHT SLIDER CONTENT-->
+
+
+
+    <!-- MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="add_bike.js"></script>
+
+
+
+
+
+
+
+
+    <!-- /MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+    <script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+
+    
+</body>
+
+</html>
+
+
+
+

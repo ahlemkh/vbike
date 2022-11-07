@@ -1,0 +1,153 @@
+.order {
+    background-color: #FFFFFF;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.order .headline {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.order .headline h3 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+    padding: 15px;
+    text-transform: uppercase;
+}
+.order .headline h3 span {
+    background-color: #45B6B0;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+.order .headline h3 i {
+    font-style:normal;
+}
+.order .value {
+    border-radius: 6px;
+    font: 5em Open Sans;
+    letter-spacing: -3px;
+    margin: 20px auto 0;
+    position: relative;
+    text-align: center;
+    color: #45B6B0;
+}
+.order .value span {
+    font-size: 25px;
+    margin-right: 5px;
+    position: relative;
+    top: -20px;
+}
+.order .profit-line {
+    text-align: center;
+}
+.order .value i {
+    font-size: 27px;
+    font-style: normal;
+    letter-spacing: -1px;
+    margin: 0 0 0 10px;
+    text-transform: uppercase;
+}
+.order .value b {
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: -1px;
+    margin: 0 0 0 10px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+.member_red {
+    background-color: #FFFFFF;
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.member_red .headline {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+.member_red .headline h3 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+    padding: 15px;
+}
+.member_red .headline h3 span {
+    background-color: red;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+.member_red .headline h3 i {
+    font-style:normal;
+}
+.member_red .value {
+    border-radius: 6px;
+    font: 5em Open Sans;
+    letter-spacing: -3px;
+    margin: 20px auto 0;
+    position: relative;
+    text-align: center;
+    color: RED;
+}
+.member_red .value span {
+    font-size: 25px;
+    margin-right: 5px;
+    position: relative;
+    top: -20px;
+}
+.member_red .value b {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0;
+    margin: 0 0 0 10px;
+    text-transform: uppercase;
+}
+.member_red .profit-line {
+    text-align: center;
+    font-size: 12px;
+}
+.member_red .value i {
+    font-size: 27px;
+    font-style: normal;
+    letter-spacing: -1px;
+    margin: 0 0 0 10px;
+}
+.profit .headline .titleClose {
+    font-size: 16px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}
+.revenue .headline .titleClose {
+    font-size: 16px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}
+.order .headline .titleClose {
+    font-size: 16px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}
+.member_red .headline .titleClose {
+    font-size: 16px;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}

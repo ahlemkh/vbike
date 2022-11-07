@@ -1,0 +1,13 @@
+<?php session_start();
+include("connect.php");
+$query_select="SELECT ROUND((number*100/su),2) as percentage FROM(SELECT client.client_gender as gender, COALESCE(COUNT(rental.total_price), 0 ) as number FROM bike_rental.client LEFT JOIN bike_rental.rental ON client.client_id=rental.client_id GROUP BY client.client_gender) AS t  CROSS JOIN (SELECT SUM(number) as su from (SELECT client.client_gender as gender, COALESCE(COUNT(rental.total_price), 0 ) as number FROM bike_rental.client LEFT JOIN bike_rental.rental ON client.client_id=rental.client_id GROUP BY client.client_gender) as n )as s WHERE gender='female' GROUP BY gender";
+$query_select_male="SELECT ROUND((number*100/su),2) as percentage FROM(SELECT client.client_gender as gender, COALESCE(COUNT(rental.total_price), 0 ) as number FROM bike_rental.client LEFT JOIN bike_rental.rental ON client.client_id=rental.client_id GROUP BY client.client_gender) AS t  CROSS JOIN (SELECT SUM(number) as su from (SELECT client.client_gender as gender, COALESCE(COUNT(rental.total_price), 0 ) as number FROM bike_rental.client LEFT JOIN bike_rental.rental ON client.client_id=rental.client_id GROUP BY client.client_gender) as n )as s WHERE gender='male' GROUP BY gender";
+    $statementselect=$connection->prepare($query_select);
+    $statementselect_male=$connection->prepare($query_select_male);
+    $statementselect->execute();
+    $statementselect_male->execute();
+    $row = $statementselect->fetch();
+    $row_male = $statementselect_male->fetch();
+    $tab["female"]=$row["percentage"];
+    $tab["male"]=$row_male["percentage"];
+    echo json_encode($tab);

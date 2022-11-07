@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Apricot v 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+
+    <link href="assets/js/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css" />
+    <link href="assets/js/footable/css/footable.standalone.css" rel="stylesheet" type="text/css" />
+    <link href="assets/js/footable/css/footable-demos.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/js/dataTable/lib/jquery.dataTables/css/DT_bootstrap.css" />
+    <link rel="stylesheet" href="assets/js/dataTable/css/datatables.responsive.css" />
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+
+<link rel="stylesheet" href="assets/js/button/ladda/ladda.min.css">
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <link href="table_bike.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .button-demo, .progress-demo {
+            display: inline-block;
+            margin-right: 3px;
+            margin-bottom: 20px;
+        }
+        </style>
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+     <!-- Preloader -->
+     <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top" w3-include-html="content.html">
+        
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+
+    <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+            <h1>VBike
+                <span>v1</span>
+            </h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>Dashboard</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="add_bike.html" title="Blog App">
+                                <i class="icon-document-edit"></i>
+                                <span>Add Bike</span>
+
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="table_bike.html" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>bike table</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="tooltip-tip" href="table_client.html" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>client table</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="topnav menu-left-nest">
+
+
+                        <li>
+                            <a class="tooltip-tip " href="sign_up.html" title="login">
+                                <i class="icon-download"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+   
+
+   
+
+
+
+    <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+            <div class="content-wrap" id="mapcontent">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="nest" id="mapClose">
+                            <div class="title-alt">
+                                <h6>
+                                    Map</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#mapClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#map">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="body-nest" id="map">
+                                <div style="padding:0;"  id="Gmap">
+
+                                    <div id="test1"  class="gmap" style="width:auto;height:500px;">
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrap" id="content_rental_chart" hidden>
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="nest" id="rentalClose" >
+                            <div class="title-alt">
+                                <h6>
+                                    Chart of rent based on bike model</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#rentalClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#rentalClose">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="body-nest" id="rental" style=" height:500px; width:900px; ">
+                                
+                                <div id="chart_column_Container" ></div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             
+            <div class="content-wrap">
+                <div class="row">
+
+
+                    <div class="col-sm-12">
+
+                        <div class="nest" id="FootableClose">
+                            
+                            <div class="title-alt">
+                                <h6> 
+                                    Bike table</h6>
+                               
+                               
+                                <div class="titleClose">
+                                    <a class="gone" href="#FootableClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#Footable">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+                                
+
+                            </div>
+
+                            <div class="body-nest" id="Footable">
+
+                                <div class="row" style="margin-bottom:10px;">
+                                    <div class="col-sm-8">
+                                        <section class="button-demo">
+
+                                            <button class="ladda-button" data-size="xs" data-color="blue" data-style="slide-left" id="btn_chart"><span class="ladda-label">Chart of rent based on bike model</span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div></button>
+                                        </section>
+                                       
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" id="filter" placeholder="Search..." type="text" />
+                                    </div>
+                                   
+                                   
+                                </div>
+
+                                
+                                
+                                <table id="footable-rese"  class="table  footable1 "  data-page-size="5" data-filter="#filter">
+                                    <thead>
+                                        <tr>
+                                            <th hidden>
+                                               id
+                                            </th>
+                                            <th>
+                                                Bike Name
+                                            </th>
+                                            <th>
+                                                Bike Model
+                                            </th>
+                                            <th >
+                                                matricule
+                                            </th>
+
+                                            <th>
+                                                image
+                                            </th>
+                                            
+                                            <th >
+                                                price
+                                            </th>
+                                            
+                                            <th>
+                                                lat
+                                            </th>
+                                            <th>
+                                               lon
+                                            </th>
+                                            <th >
+                                                Status
+                                            </th>
+                                            <th >
+                                                Total Price
+                                            </th>
+                                            <th></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                       
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="11">
+                                                <div class="pagination pagination-centered"></div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                   
+                                   
+                                </table>
+
+                                
+                                
+                                    
+
+                            </div>
+
+                        </div>
+
+                        
+
+
+                    </div>
+                    
+                </div>
+            </div>  
+            <div class="content-wrap form-popup">
+                <div class="col-sm-12 colpop">
+                    <div class="body-nest">
+                        
+                        
+                            <div class="row ">
+                                <div class="col-sm-7">
+                                    <div   id="Gmap">
+            
+                                        <div id="test2"  class="gmap" style="width: 600px;height:500px;"></div>
+                            
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-5">
+                                    <form role="form" class="form-container" enctype='multipart/form-data' id="add_bike_form" method="post" action="addbike.php">
+                                        <input type="text"   id="bike_id" name="bike_id" class="form-control" required hidden>
+                                        <div class="form-group">
+                                            <label for="bike_name">Bike name </label>
+                                            <input type="text"   id="bike_name" name="bike_name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bike_model">Bike model</label>
+                                            <input type="text"  id="bike_model" name="bike_model" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="matricule">Bike number</label>
+                                            <input type="number"  id="matricule"  name="matricule" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="price">Price</label>
+                                            <input type="number"  id="price" name="price" class="form-control" required>
+                                        </div>
+                                        <div class="form-group ">
+                                            <a class="btn btn-primary " id="show_map" href="#test1">
+                                                <span class="entypo-plus-squared"></span>&nbsp;&nbsp;Location</a>  
+                                        </div>
+                                        <div class="form-group" >
+                                            <label for="longitude">longitude</label>
+                                            <input type="number" step="any"  id="longitude" name="longitude" class="form-control" required>
+                                            <p class="help-block">to edit the longitude please  set the location by clicking on the location button</p>
+                                            
+                                        </div>
+                                        <div class="form-group" >
+                                            <label for="latitude">latitude</label>
+                                            <input type="number" step="any"  id="latitude" name="latitude" class="form-control"  required>
+                                            <p class="help-block">to edit the latitude please set the location by clicking on the location button</p>
+                                        </div>
+                                        <button class="btn btn-info" id="btn_add_bike" name="submit" type="submit" >submit</button>
+                                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            
+        
+                            
+                            
+                        
+                            
+                       
+
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+        </div>
+    </div>
+    <!--  END OF PAPER WRAP -->
+
+  
+
+   
+
+
+    <!-- MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="table_bike.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>  
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    <script src="assets/js/button/ladda/spin.min.js"></script>
+    <script src="assets/js/button/ladda/ladda.min.js"></script>
+    <!-- /MAIN EFFECT -->
+    <script>
+        // Bind normal buttons
+        Ladda.bind('.button-demo button', {
+            timeout: 2000
+        });
+    
+        // Bind progress buttons and simulate loading progress
+        Ladda.bind('.progress-demo button', {
+            callback: function(instance) {
+                var progress = 0;
+                var interval = setInterval(function() {
+                    progress = Math.min(progress + Math.random() * 0.1, 1);
+                    instance.setProgress(progress);
+    
+                    if (progress === 1) {
+                        instance.stop();
+                        clearInterval(interval);
+                    }
+                }, 200);
+            }
+        });
+    
+        // You can control loading explicitly using the JavaScript API
+        // as outlined below:
+    
+        // var l = Ladda.create( document.querySelector( 'button' ) );
+        // l.start();
+        // l.stop();
+        // l.toggle();
+        // l.isLoading();
+        // l.setProgress( 0-1 );
+        </script>
+    <!-- GAGE -->
+    <script type="text/javascript" src="assets/js/toggle_close.js"></script>
+    <script src="assets/js/footable/js/footable.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+
+
+
+
+
+    
+    
+
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>VBike v 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/js/progress-bar/number-pb.css">
+
+
+
+    <style type="text/css">
+    canvas#canvas4 {
+        position: relative;
+        top: 20px;
+    }
+    </style>
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="entypo-menu"></span>
+                </button>
+               
+
+                <div id="logo-mobile" class="visible-xs">
+                    <h1>
+                        <span>v1</span>
+                    </h1>
+                </div>
+
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    </li>
+
+                </ul>
+                <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                    <ul class="date-top">
+                        <li class="entypo-calendar" style="margin-right:5px"></li>
+                        <li id="Date"></li>
+
+
+                    </ul>
+
+                    <ul id="digital-clock" class="digital">
+                        <li class="entypo-clock" style="margin-right:5px"></li>
+                        <li class="hour"></li>
+                        <li>:</li>
+                        <li class="min"></li>
+                        <li>:</li>
+                        <li class="sec"></li>
+                        <li class="meridiem"></li>
+                    </ul>
+    
+                </div>
+
+                <ul style="margin-right:0;" class="nav navbar-nav navbar-right" id="admin_con" hidden>
+                    <li >
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" class="admin-pic img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXE2EnvtncW3k1h3k6U40vIXvskkGQxg7WPw&usqp=CAU">
+                        </a>
+                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" id="logout">
+                                    <span class="entypo-logout"></span>&#160;&#160;Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+
+    <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+            <h1>VBike
+                <span>v1</span>
+            </h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                    <ul class="topnav menu-left-nest">
+                        <li>
+                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                                <span class="widget-menu"></span>
+                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="tooltip-tip " href="sign_up.html" title="login">
+                                <i class="icon-download"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="topnav menu-left-nest">
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="add_bike.html" title="Blog App">
+                                <i class="icon-document-edit"></i>
+                                <span>Add Bike</span>
+
+                            </a>
+                        </li>
+
+                        
+
+                       
+
+                    </ul>
+
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        <li>
+                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                                <span class="component"></span>
+                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>Dashboard</span>
+
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="table_bike.html" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>bike table</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="tooltip-tip" href="table_client.html" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>client table</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+
+
+
+    <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+
+
+
+
+            <!-- CONTENT -->
+            <!--TITLE -->
+            <div class="row">
+                <div id="paper-top">
+                    <div class="col-sm-3">
+                        <h2 class="tittle-content-header">
+                            <i class="icon-window"></i> 
+                            <span>Dashboard
+                            </span>
+                        </h2>
+
+                    </div>
+                </div>
+            </div>
+            <!--/ TITLE -->
+
+            <!-- BREADCRUMB -->
+            <ul id="breadcrumb">
+                <li>
+                    <span class="entypo-home"></span>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Home</a>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Dashboard</a>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+                    </div>
+                </li>
+            </ul>
+
+            <!-- END OF BREADCRUMB -->
+
+
+
+
+
+            <div class="content-wrap">
+                
+
+                <div class="row ">
+
+
+                    <div class="col-sm-12">
+
+                        <div class="account-box" id="account_box_login" hidden>
+
+                            <form id="login-form" method="post">
+                                <div class="form-group">
+                                    <label for="admin_mail">email</label>
+                                    <input type="text" id="admin_mail" name="admin_mail" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="admin_password">Password</label>
+                                    <input type="password" id="admin_password" name="admin_password" class="form-control" required>
+                                </div>
+                                
+                                <button class="btn btn btn-primary pull-right" type="submit">
+                                    Log In
+                                </button>
+                            </form>
+                            <a class="forgotLnk" href="index.html"></a>
+                            <div id="input_empty" class="text-center mark masg_error"></div>
+                            <div class="or-box">
+                              
+                                <center><span class="text-center login-with">Login or <b id="btn_login">Sign Up</b></span></center>
+                              
+                                
+                            </div>
+                            <hr>
+                            <div class="row-block">
+                                <div class="row">
+                                    <div class="col-md-12 row-block">
+                                        <a href="index.html" class="btn btn-primary btn-block">Create New Account</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="account-box" id="account_box_signup">
+
+                            <div class="body-nest" id="validation">
+                                <div class="form_center">
+    
+                                    <form  id="contact-form" class="form-horizontal " method="post" >
+                                        <fieldset>
+    
+    
+                                            <div class="control-group">
+                                                <label class="control-label" for="name_admin">Your Name</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control " name="name_admin" id="name_admin" required>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="email_admin">Email Address</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control " name="email_admin" id="email_admin" required>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="password_admin">Password</label>
+                                                <div class="controls">
+                                                    <input type="password" class="form-control pwd_confirm" name="password_admin" id="password_admin" required>
+                                                </div>
+                                                
+                                            </div>
+    
+                                            <div class="control-group">
+                                                <label class="control-label" for="password_admin_repeat">Repeat password</label>
+                                                <div class="controls">
+                                                    <input type="password" class="form-control pwd_confirm" name="password_admin_repeat" id="password_admin_repeat" required>
+                                                </div>
+                                                <div class="registrationFormAlert" style="color:green;" id="CheckPasswordMatch"></div>
+                                                
+                                            </div>
+                                            
+                                            <div class="form-actions" style="margin:20px 0 0 0;">
+                                                <button type="submit" id="submit_form" class="btn btn-primary">Sign Up</button>
+                                                <button type="reset" class="btn">Cancel</button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+    
+                                </div>
+                            </div>
+    
+                           
+    
+                            <!-- if the inputs is empty we print a msg -->
+                            <div id="input_empty" class="text-center mark masg_error"></div>
+                            
+                            <a class="forgotLnk" href="index.html"></a>
+                            <div class="or-box">
+                                <center> <span class="text-center login-with"><b id="btn_signup">Login </b>or Sign Up</span></center>
+                            
+                              
+                                
+                              
+                                
+                            </div>
+                            <hr>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- /END OF CONTENT -->
+
+
+
+            <!-- FOOTER -->
+            <div class="footer-space"></div>
+            <div id="footer">
+                <div class="devider-footer-left"></div>
+                <div class="time">
+                    <p id="spanDate"></p>
+                    <p id="clock"></p>
+                </div>
+                <div class="copyright">Make with Love
+                    <span class="entypo-heart"></span>2022 <a href="">Ahlem Khiar</a> All Rights Reserved</div>
+                <div class="devider-footer"></div>
+
+            </div>
+            <!-- / END OF FOOTER -->
+
+
+                
+
+
+            </div>
+        </div>
+    </div>
+    <!--  END OF PAPER WRAP -->
+
+    <!-- RIGHT SLIDER CONTENT -->
+  
+
+    <!-- END OF RIGHT SLIDER CONTENT-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+    <script src="assets/js/progress-bar/src/jquery.velocity.min.js"></script>
+    <script src="assets/js/progress-bar/number-pb.js"></script>
+    <script src="assets/js/progress-bar/progress-app.js"></script>
+
+
+
+    <!-- MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+
+
+
+    <!-- GAGE -->
+
+
+    <script type="text/javascript" src="assets/js/chart/jquery.flot.js"></script>
+    <script type="text/javascript" src="assets/js/chart/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="assets/js/chart/realTime.js"></script>
+    <script type="text/javascript" src="assets/js/speed/canvasgauge-coustom.js"></script>
+    <script type="text/javascript" src="assets/js/countdown/jquery.countdown.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+
+
+    <script src="assets/js/jhere-custom.js"></script>
+
+    <script>
+    var gauge4 = new Gauge("canvas4", {
+        'mode': 'needle',
+        'range': {
+            'min': 0,
+            'max': 90
+        }
+    });
+    gauge4.draw(Math.floor(Math.random() * 90));
+    var run = setInterval(function() {
+        gauge4.draw(Math.floor(Math.random() * 90));
+    }, 3500);
+    </script>
+
+
+    <script type="text/javascript">
+    /* Javascript
+     *
+     * See http://jhere.net/docs.html for full documentation
+     */
+    $(window).on('load', function() {
+        $('#mapContainer').jHERE({
+            center: [52.500556, 13.398889],
+            type: 'smart',
+            zoom: 10
+        }).jHERE('marker', [52.500556, 13.338889], {
+            icon: 'assets/img/marker.png',
+            anchor: {
+                x: 12,
+                y: 32
+            },
+            click: function() {
+                alert('Hallo from Berlin!');
+            }
+        })
+            .jHERE('route', [52.711, 13.011], [52.514, 13.453], {
+                color: '#FFA200',
+                marker: {
+                    fill: '#86c440',
+                    text: '#'
+                }
+            });
+    });
+    </script>
+    <script type="text/javascript">
+    var output, started, duration, desired;
+
+    // Constants
+    duration = 5000;
+    desired = '50';
+
+    // Initial setup
+    output = $('#speed');
+    started = new Date().getTime();
+
+    // Animate!
+    animationTimer = setInterval(function() {
+        // If the value is what we want, stop animating
+        // or if the duration has been exceeded, stop animating
+        if (output.text().trim() === desired || new Date().getTime() - started > duration) {
+            console.log('animating');
+            // Generate a random string to use for the next animation step
+            output.text('' + Math.floor(Math.random() * 60)
+
+            );
+
+        } else {
+            console.log('animating');
+            // Generate a random string to use for the next animation step
+            output.text('' + Math.floor(Math.random() * 120)
+
+            );
+        }
+    }, 5000);
+    </script>
+    <script type="text/javascript">
+    $('#getting-started').countdown('2015/01/01', function(event) {
+        $(this).html(event.strftime(
+
+            '<span>%M</span>' + '<span class="start-min">:</span>' + '<span class="start-min">%S</span>'));
+    });
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?php session_start();
+include("connect.php");
+$query_select="SELECT COUNT(bike.bike_id) AS number  FROM bike_rental.bike where bike.is_available=0";
+$query_select_active="SELECT COUNT(bike.bike_id) AS number  FROM bike_rental.bike where bike.is_available=1";
+$statementselect=$connection->prepare($query_select);
+$statementselect->execute();
+$row = $statementselect->fetch(PDO::FETCH_ASSOC);
+$statementselect_active=$connection->prepare($query_select_active);
+$statementselect_active->execute();
+$row_active = $statementselect_active->fetch(PDO::FETCH_ASSOC);
+
+$query_select_suspendu="SELECT COUNT(bike.bike_id) AS number  FROM bike_rental.bike where bike.is_available=2";
+$statementselect_suspendu=$connection->prepare($query_select_suspendu);
+$statementselect_suspendu->execute();
+$row_suspendu = $statementselect_suspendu->fetch(PDO::FETCH_ASSOC);
+$result;
+$result['rent']=$row["number"];
+$result['disponible']=$row_active["number"];
+$result['suspendu']=$row_suspendu["number"];
+echo json_encode($result);

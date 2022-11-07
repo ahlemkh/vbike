@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <title>VBike v 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    
+
+    <link href="footable-standalone.latest/css/footable.standalone.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/js/dataTable/lib/jquery.dataTables/css/DT_bootstrap.css" />
+    <link rel="stylesheet" href="assets/js/dataTable/css/datatables.responsive.css" />
+    
+    <link rel="stylesheet" href="assets/css/stackable/stacktable.css">
+    <link rel="stylesheet" href="assets/css/stackable/responsive-table.css">
+    
+    <link href="assets/js/iCheck/flat/all.css" rel="stylesheet">
+    <link href="assets/js/iCheck/line/all.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/switch/bootstrap-switch.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+    <link rel="stylesheet" href="form_element.css">
+
+    
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+
+
+
+    
+
+
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <link rel="stylesheet" href="assets/js/button/ladda/ladda.min.css">
+    <style type="text/css">
+    .button-demo, .progress-demo {
+        display: inline-block;
+        margin-right: 3px;
+        margin-bottom: 20px;
+    }  
+    </style>
+
+    
+   
+    
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="entypo-menu"></span>
+                </button>
+               
+
+                <div id="logo-mobile" class="visible-xs">
+                    <h1>
+                        <span>v1</span>
+                    </h1>
+                </div>
+
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>
+
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;" class="icon-warning tooltitle"></i><div class="noft-green" id="div_number_suspendu"></div></a>
+                        <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
+                            <li>
+                                <a href="#table_suspended" style="
+                                width: 230px;
+                            ">
+                                    <span style="background:gray" class="noft-icon maki-bicycle"></span><i>Suspended Bikes</i>  <b id="b_number_suspendu"></b>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+                <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                    <ul class="date-top">
+                        <li class="entypo-calendar" style="margin-right:5px"></li>
+                        <li id="Date"></li>
+
+
+                    </ul>
+
+                    <ul id="digital-clock" class="digital">
+                        <li class="entypo-clock" style="margin-right:5px"></li>
+                        <li class="hour"></li>
+                        <li>:</li>
+                        <li class="min"></li>
+                        <li>:</li>
+                        <li class="sec"></li>
+                        <li class="meridiem"></li>
+                    </ul>
+    
+                </div>
+
+                <ul style="margin-right:0;" class="nav navbar-nav navbar-right" id="admin_con" hidden>
+                    <li >
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" class="admin-pic img-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXE2EnvtncW3k1h3k6U40vIXvskkGQxg7WPw&usqp=CAU">
+                        </a>
+                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                            <li>
+                                <a href="http://localhost/project/vbike/profile.html">
+                                    <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" id="logout">
+                                    <span class="entypo-logout"></span>&#160;&#160;Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+
+    <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+            <h1>VBike
+                <span>v1</span>
+            </h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>Dashboard</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="add_bike.html" title="Blog App">
+                                <i class="icon-document-edit"></i>
+                                <span>Add Bike</span>
+
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="table_bike.html" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>bike table</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="tooltip-tip" href="table_client.html" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>client table</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="topnav menu-left-nest">
+
+
+                        <li>
+                            <a class="tooltip-tip " href="sign_up.html" title="login">
+                                <i class="icon-download"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+
+
+
+    <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+
+
+
+
+            <!-- CONTENT -->
+            <!--TITLE -->
+            <div class="row">
+                <div id="paper-top">
+                    <div class="col-sm-3">
+                        <h2 class="tittle-content-header">
+                            <i class="icon-window"></i> 
+                            <span>Dashboard
+                            </span>
+                        </h2>
+
+                    </div>
+                </div>
+            </div>
+            <!--/ TITLE -->
+
+            <!-- BREADCRUMB -->
+            <ul id="breadcrumb">
+                <li>
+                    <span class="entypo-home"></span>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Home</a>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Dashboard </a>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+                    </div>
+                </li>
+            </ul>
+
+            <!-- END OF BREADCRUMB -->
+
+
+            <div class="content-wrap">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class=" member" id="memberClose">
+                            <div class="headline ">
+                                <h3>
+                                    <span>
+                                        <i class="fa fa-motorcycle"></i>
+                                        NUMBER OF BIKES
+                                    </span>
+                                </h3>
+                                <div class="titleClose">
+                                    <a href="#memberClose" class="gone">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="value" id="value_bike">
+    
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class=" member_red" id="memberClose">
+                            <div class="headline ">
+                                <h3>
+                                    <span>
+                                        <i class="fa fa-motorcycle"></i>
+                                        &#160;&#160;BIKES
+                                    </span>
+                                </h3>
+                                <div class="titleClose">
+                                    <a href="#memberClose" class="gone">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="value" id="bike_available">
+                              
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class=" member_green" id="memberClose">
+                            <div class="headline ">
+                                <h3>
+                                    <span>
+                                        <i class="fa fa-motorcycle"></i>
+                                        &#160;&#160;BIKES
+                                    </span>
+                                </h3>
+                                <div class="titleClose">
+                                    <a href="#memberClose" class="gone">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="value" id="bike_not_available">
+                               
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class=" member_orange" id="memberClose">
+                            <div class="headline ">
+                                <h3>
+                                    <span>
+                                        <i class="fa fa-motorcycle"></i>
+                                        &#160;&#160;BIKES
+                                    </span>
+                                </h3>
+                                <div class="titleClose">
+                                    <a href="#memberClose" class="gone">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="value" id="bike_suspended">
+                               
+                               
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content-wrap">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="nest" id="mapClose">
+                            <div class="title-alt">
+                                <h6>
+                                    Map</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#mapClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#map">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="body-nest" id="map">
+                                <div id="map_container"  class="gmap" style="width:auto;height:500px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div >
+                <div class="col-sm-9">
+                    <div class="content-wrap" id="content_rental_chart">
+                        <div class="row">
+                            <div>
+        
+                                <div class="nest" id="rentalClose_high" >
+                                    <div class="title-alt">
+                                        <h6>
+                                            Rental Statistcs</h6>
+                                        <div class="titleClose">
+                                            <a class="gone" href="#rentalClose_high">
+                                                <span class="entypo-cancel"></span>
+                                            </a>
+                                        </div>
+                                        <div class="titleToggle">
+                                            <a class="nav-toggle-alt" href="#rental_high">
+                                                <span class="entypo-up-open"></span>
+                                            </a>
+                                        </div>
+        
+                                    </div>
+                                    <div class="body-nest" id="rental_high">
+                                        <div class="form-center">
+                                            <div class="well">
+                                                <input type="month" class="form-control" id="month_input" >
+        
+                                            </div>
+                                        </div>
+                                      
+                                        
+                                        <figure class="highcharts-figure">
+                                            <div id="container"></div>
+                                            
+                                          </figure>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="content-wrap" >
+                        <div class="row">
+                           
+        
+                                <div class="nest" id="saleClose_week" >
+                                    <div class="title-alt">
+                                        <h6>
+                                            Sale Statistcs</h6>
+                                        <div class="titleClose">
+                                            <a class="gone" href="#saleClose_week">
+                                                <span class="entypo-cancel"></span>
+                                            </a>
+                                        </div>
+                                        <div class="titleToggle">
+                                            <a class="nav-toggle-alt" href="#sale_week">
+                                                <span class="entypo-up-open"></span>
+                                            </a>
+                                        </div>
+        
+                                    </div>
+                                    <div class="body-nest" id="sale_week" >
+                                        
+                                       
+                                            <div class=" member" id="memberClose">
+                                                <div class="headline ">
+                                                    <h3>
+                                                        <span>
+                                                            <i class="fa fa-money"></i>
+                                                            THIS WEEK
+                                                        </span>
+                                                    </h3>
+                                                    <div class="titleClose">
+                                                        <a href="#memberClose" class="gone">
+                                                            <span class="entypo-cancel"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="value" id="value_week">
+                        
+                                                </div>
+                                                <div class="progress-tinny">
+                                                    <div style="width: 50%" class="bar"></div>
+                                                </div>
+                                                <div class="profit-line" id="value_week_percentage">
+                                                    <i class="fa  fa-lg"></i>&#160;&#160; </div>
+                                            </div>
+                    
+                                      
+                                        
+                                       
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <div class="content-wrap" >
+                        <div class="row">
+                           
+        
+                                <div class="nest" id="saleClose" >
+                                    <div class="title-alt">
+                                        <h6>
+                                            Sale Statistcs</h6>
+                                        <div class="titleClose">
+                                            <a class="gone" href="#saleClose">
+                                                <span class="entypo-cancel"></span>
+                                            </a>
+                                        </div>
+                                        <div class="titleToggle">
+                                            <a class="nav-toggle-alt" href="#sale">
+                                                <span class="entypo-up-open"></span>
+                                            </a>
+                                        </div>
+        
+                                    </div>
+                                    <div class="body-nest" id="sale" >
+                                      
+                                            <div class=" member " id="memberClose">
+                                                <div class="headline ">
+                                                    <h3>
+                                                        <span>
+                                                            <i class="fa fa-money"></i>
+                                                            THIS MONTH
+                                                        </span>
+                                                    </h3>
+                                                    <div class="titleClose">
+                                                        <a href="#memberClose" class="gone">
+                                                            <span class="entypo-cancel"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="value" id="value_month" style="
+                                                position: relative;">
+                        
+                                                </div>
+                                                <div class="progress-tinny">
+                                                    <div style="width: 50%" class="bar"></div>
+                                                </div>
+                                                <div class="profit-line" id="value_month_percentage">
+                                                    <i class="fa  fa-lg"></i>&#160;&#160; </div>
+                                            </div>
+                
+                                       
+                                    </div>
+                                </div>
+                           
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+           
+            <div class="content-wrap">
+                <div class="row">
+
+
+                    <div class="col-sm-6">
+
+                        <div class="nest" id="FootableClose">
+                            
+                            <div class="title-alt">
+                                <h6> 
+                                    Rental table</h6>
+                               
+                               
+                                <div class="titleClose">
+                                    <a class="gone" href="#FootableClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#Footable">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+                                
+
+                            </div>
+
+                            <div class="body-nest" id="Footable">
+
+                                
+
+                                <table id="rent_table" class="table small-only footable-res" data-paging="true" data-filtering="true" >
+                                    
+                                    
+                                   
+                                    
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="RealTimeClose" class="nest">
+                            <div class="title-alt">
+                                <h6>
+                                    <span class="fontawesome-resize-horizontal"></span>&nbsp;Suspended</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#RealTimeClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#RealTime">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="RealTime" style="min-height:296px;" class="body-nest">
+                                <div class="table-responsive">
+                                    <table class="table"  id="table_suspended" data-paging="true" data-filtering="true">
+                                        <thead>
+                                            <tr>
+                                                <th >rental</th>
+                                                <th >client</th>
+                                                <th >bike</th>
+                                                <th ></th>
+                                                <th ></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                            
+                                            
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            
+
+           
+            
+            
+
+            <!-- /END OF CONTENT -->
+
+
+
+            <!-- FOOTER -->
+            <div class="footer-space"></div>
+            <div id="footer">
+                <div class="devider-footer-left"></div>
+                <div class="time">
+                    <p id="spanDate"></p>
+                    <p id="clock"></p>
+                </div>
+                <div class="copyright">Make with Love
+                    <span class="entypo-heart"></span>2022 <a href="">Ahlem Khiar</a> All Rights Reserved</div>
+                <div class="devider-footer"></div>
+
+            </div>
+            <!-- / END OF FOOTER -->
+
+
+        
+        
+        </div>
+    </div>
+    <!--  END OF PAPER WRAP -->
+    <!-- RIGHT SLIDER CONTENT -->
+   
+    <!-- END OF RIGHT SLIDER CONTENT-->
+
+
+
+    <!-- MAIN EFFECT -->
+
+
+    
+    
+
+    
+    
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+  
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>  
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    
+
+
+
+
+
+
+    <!-- /MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+    <script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+    
+
+
+
+
+
+   
+
+   
+
+    
+    <script src="assets/js/button/ladda/spin.min.js"></script>
+    <script src="assets/js/button/ladda/ladda.min.js"></script>
+    <script type='text/javascript' src='assets/js/button/progressbutton.jquery.js'></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    
+   
+    
+    <script type="text/javascript" src="assets/js/toggle_close.js"></script>
+    <script src="footable-standalone.latest/js/footable.js" type="text/javascript"></script>
+    <script src="footable-components.latest/js/footable.paging.js" type="text/javascript"></script>
+
+    
+    
+   
+    
+    
+    
+
+   
+
+
+    
+</body>
+
+</html>

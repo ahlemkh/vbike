@@ -1,0 +1,12 @@
+[
+    {"name":"client_id","title":"Client Id","breakpoints":"xs sm","type":"number","style":{"width":80,"maxWidth":80}},
+    {"name":"client_first_name","title":"First name"},
+    {"name":"client_last_name","title":"Last name"},
+    {"name":"client_email","title":"Email"},
+    {"name":"client_birthdate","title":"Birthdate"},
+    {"name":"age","title":"age"},
+    {"name":"client_gender","title":"Gender"},
+    {"name":"number","title":"Number of times to rent"},
+    {"name":"total","title":"Total price paid"}
+  ]
+  

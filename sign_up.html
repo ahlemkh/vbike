@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Apricot V 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="sign_up.js"></script>
+
+   <!--  <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/signin.css">
+
+
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+</head>
+
+<body>
+   
+
+
+
+    <div class="container">
+
+
+
+        <div class="" id="login-wrapper">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div id="logo-login">
+                        <h1>VBike
+                            <span>v1</span>
+                        </h1>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="account-box" id="account_box_login" hidden>
+
+                        <form id="login-form" method="post">
+                            <div class="form-group">
+                                <label for="admin_mail">email</label>
+                                <input type="text" id="admin_mail" name="admin_mail" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="admin_password">Password</label>
+                                <input type="password" id="admin_password" name="admin_password" class="form-control" required>
+                            </div>
+                            
+                            <button class="btn btn btn-primary pull-right" type="submit">
+                                Log In
+                            </button>
+                        </form>
+                        <div id="input_empty" class="text-center mark masg_error"></div>
+                        <div class="or-box" id="orBox">
+                          
+                            <center><span class="text-center login-with">Login or <b id="btn_login">Sign Up</b></span></center>
+                          
+                            
+                        </div>
+                       
+                    </div>
+                    <div class="account-box" id="account_box_signup">
+
+                        <div class="body-nest" id="validation">
+                            <div class="form_center">
+
+                                <form  id="contact-form" class="form-horizontal " method="post" >
+                                    <fieldset>
+
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="name_admin">Your Name</label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control " name="name_admin" id="name_admin" required>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="email_admin">Email Address</label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control " name="email_admin" id="email_admin" required>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="password_admin">Password</label>
+                                            <div class="controls">
+                                                <input type="password" class="form-control pwd_confirm" name="password_admin" id="password_admin" required>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="password_admin_repeat">Repeat password</label>
+                                            <div class="controls">
+                                                <input type="password" class="form-control pwd_confirm" name="password_admin_repeat" id="password_admin_repeat" required>
+                                            </div>
+                                            <div class="registrationFormAlert" style="color:green;" id="CheckPasswordMatch"></div>
+                                            
+                                        </div>
+                                        
+                                        <div class="form-actions" style="margin:20px 0 0 0;">
+                                            <button type="submit" id="submit_form" class="btn btn-primary">Sign Up</button>
+                                            <button type="reset" class="btn">Cancel</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+
+                            </div>
+                        </div>
+
+                       
+
+                        <!-- if the inputs is empty we print a msg -->
+                        <div id="input_empty" class="text-center mark masg_error"></div>
+                        
+                        <a class="forgotLnk" href="index.html"></a>
+                        <div class="or-box">
+                            <center> <span class="text-center login-with"><b id="btn_signup">Login </b>or Sign Up</span></center>
+                        
+                          
+                            
+                          
+                            
+                        </div>
+                        <hr>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!--  END OF PAPER WRAP -->
+
+
+
+
+    <!-- MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/map/gmap3.js"></script>
+    
+    
+
+
+
+
+</body>
+
+</html>

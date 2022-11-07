@@ -1,0 +1,8 @@
+[
+  {"name":"rental_id","title":"Rental Id","breakpoints":"xs sm","type":"number","style":{"width":80,"maxWidth":80}},
+  {"name":"client_id","title":"Client Id"},
+  {"name":"bike_id","title":"Bike Id"},
+  {"name":"start_time","title":"Start Time"},
+  {"name":"end_time","title":"End Time"},
+  {"name":"total_price","title":"Rent Price"}
+]

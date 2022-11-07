@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Apricot v 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/css/profile.css">
+
+    <link href="assets/js/iCheck/flat/all.css" rel="stylesheet">
+    <link href="assets/js/iCheck/line/all.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/switch/bootstrap-switch.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+
+
+
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="entypo-menu"></span>
+                </button>
+               
+
+                <div id="logo-mobile" class="visible-xs">
+                    <h1>
+                        <span>v1</span>
+                    </h1>
+                </div>
+
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    </li>
+
+                </ul>
+                <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                    <ul class="date-top">
+                        <li class="entypo-calendar" style="margin-right:5px"></li>
+                        <li id="Date"></li>
+
+
+                    </ul>
+
+                    <ul id="digital-clock" class="digital">
+                        <li class="entypo-clock" style="margin-right:5px"></li>
+                        <li class="hour"></li>
+                        <li>:</li>
+                        <li class="min"></li>
+                        <li>:</li>
+                        <li class="sec"></li>
+                        <li class="meridiem"></li>
+                    </ul>
+    
+                </div>
+
+                <ul style="margin-right:0;" class="nav navbar-nav navbar-right" id="admin_con" hidden>
+                    <li >
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            
+                        </a>
+                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                            <li>
+                                <a href="http://localhost/project/vbike/profile.html">
+                                    <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" id="logout">
+                                    <span class="entypo-logout"></span>&#160;&#160;Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+
+    <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+            <h1>VBike
+                <span>v1</span>
+            </h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>Dashboard</span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="add_bike.html" title="Blog App">
+                                <i class="icon-document-edit"></i>
+                                <span>Add Bike</span>
+
+                            </a>
+                        </li>
+                      
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="table_bike.html" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>bike table</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="tooltip-tip" href="table_client.html" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>client table</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="topnav menu-left-nest">
+
+
+                        <li>
+                            <a class="tooltip-tip " href="sign_up.html" title="login">
+                                <i class="icon-download"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+   
+
+   
+
+    <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+        <div class="container-fluid paper-wrap bevel tlbr">
+
+
+
+
+
+            <!-- CONTENT -->
+            <!--TITLE -->
+            <div class="row">
+                <div id="paper-top">
+                    <div class="col-sm-3">
+                        <h2 class="tittle-content-header">
+                            <i class="icon-media-record"></i> 
+                            <span>Profile
+                            </span>
+                        </h2>
+
+                    </div>
+
+                    <div class="col-sm-7">
+                        <div class="devider-vertical visible-lg"></div>
+                        <div class="tittle-middle-header">
+
+                            <div class="alert" id="welcome_div">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <span class="tittle-alert entypo-info-circled"></span>
+                                Welcome back,&nbsp;
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            <!--/ TITLE -->
+
+            <!-- BREADCRUMB -->
+            <ul id="breadcrumb">
+                <li>
+                    <span class="entypo-home"></span>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Home</a>
+                </li>
+                <li><i class="fa fa-lg fa-angle-right"></i>
+                </li>
+                <li><a href="#" title="Sample page 1">Profile</a>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+                    </div>
+                </li>
+            </ul>
+
+            <!-- END OF BREADCRUMB -->
+            <div class="content-wrap">
+                <!-- PROFILE -->
+                <div class="row">
+                    
+                        <div class="well profile">
+                            <div class="col-sm-12">
+                                <div class=" col-sm-12 profile-name" id="profile_information" style="min-width: 500px">
+                                    <h2><span class="pull-right social-profile">
+                                            <i class="entypo-facebook-circled"></i>  <i class="entypo-twitter-circled"></i>  <i class="entypo-linkedin-circled"></i>  <i class="entypo-github-circled"></i>  <i class="entypo-gplus-circled"></i>
+                                        </span>
+                                    </h2>
+                                    <hr>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXE2EnvtncW3k1h3k6U40vIXvskkGQxg7WPw&usqp=CAU" alt="" class="img-circle img-responsive img-profile">
+                                    <hr>
+                                    <dl class="dl-horizontal-profile">
+                                    </dl>
+                                    <hr>
+                                </div>
+    
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="content-wrap">
+                <!-- PROFILE -->
+                
+                <div class="row">
+
+
+                    <div class="col-sm-7">
+                        <!-- BLANK PAGE-->
+
+                        <div  class="nest" id="Blank_PageClose">
+                            <div class="title-alt">
+                                <h6>
+                                    Edit Profile</h6>
+                                <div class="titleClose">
+                                    <a class="gone" href="#Blank_PageClose">
+                                        <span class="entypo-cancel"></span>
+                                    </a>
+                                </div>
+                                <div class="titleToggle">
+                                    <a class="nav-toggle-alt" href="#Blank_Page_Content">
+                                        <span class="entypo-up-open"></span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="body-nest" id="Blank_Page_Content">
+
+
+
+
+                                <div class="row">
+
+
+                                    
+
+                                    <!-- edit form column -->
+                                    <div class="col-md-9 personal-info">
+                                        
+                                        <h3>Personal info</h3>
+
+                                        <form class="form-horizontal" role="form" id="personal_form" data-toggle="validator" >
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label" >Full name:</label>
+                                                <div class="col-lg-8">
+                                                    <input class="form-control"  type="text" id="admin_full_name" name="admin_full_name" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-3 control-label">Email:</label>
+                                                <div class="col-lg-8">
+                                                    <input class="form-control"  type="email" required id="admin_email" name="admin_email">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Password:</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control"  type="password" id="admin_password" name="admin_password" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Confirm password:</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control"  type="password" id="admin_repeat_password" name="admin_repeat_password" data-match="#admin_password" required>
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label"></label>
+                                                <div class="col-md-8">
+                                                    <input class="btn btn-primary"  type="submit">
+                                                    <span></span>
+                                                    <input class="btn btn-default"  type="reset">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END OF BLANK PAGE -->
+
+                </div>
+            
+                <!-- END OF PROFILE -->
+
+
+                <!-- /END OF CONTENT -->
+
+
+
+                <!-- FOOTER -->
+            <div class="footer-space"></div>
+            <div id="footer">
+                <div class="devider-footer-left"></div>
+                <div class="time">
+                    <p id="spanDate"></p>
+                    <p id="clock"></p>
+                </div>
+                <div class="copyright">Make with Love
+                    <span class="entypo-heart"></span>2022 <a href="">Ahlem Khiar</a> All Rights Reserved</div>
+                <div class="devider-footer"></div>
+
+            </div>
+            <!-- / END OF FOOTER -->
+
+            </div>
+            
+        </div>
+    </div>
+        
+        <!--  END OF PAPER WRAP -->
+
+       
+
+
+        <!-- MAIN EFFECT -->
+        <script type="text/javascript" src="assets/js/preloader.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+        <script type="text/javascript" src="assets/js/load.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="profile.js"></script>
+        <link href="assets/js/validate/jquery.validate.js" rel="stylesheet">
+
+        <script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+        <script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+
+
+</body>
+
+</html>

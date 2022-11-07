@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Evening Sales in a Restaurant"
+	},
+	
+	toolTip: {
+		shared: true
+	},
+
+	data: [
+		{
+		type: "stackedBar",
+		name: "Meals",
+		showInLegend: "true",
+		yValueFormatString: "$#,##0",
+		dataPoints: [
+		{  label: "USA"  ,y: 111338 },
+		]
+	},
+	{
+		type: "stackedBar",
+		name: "Snacks",
+		showInLegend: "true",
+		yValueFormatString: "$#,##0",
+		dataPoints: [
+		{  label: "USA",y: 135305  },
+			
+		]
+	}
+	
+		
+]});
+chart.render();
+
+	
+}
+
+
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

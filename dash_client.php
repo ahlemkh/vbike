@@ -1,0 +1,13 @@
+<?php session_start();
+include("connect.php");
+$query_select="select ROUND((COUNT(number)*100 / (number)),2) AS percentage from (SELECT client.client_gender as gender, COUNT(*) as number FROM bike_rental.client GROUP BY client.client_gender) AS t  WHERE gender='female' GROUP BY gender";
+$query_select_male="select ROUND((COUNT(number)*100 / (number)),2) AS percentage from (SELECT client.client_gender as gender, COUNT(*) as number FROM bike_rental.client GROUP BY client.client_gender) AS t  WHERE gender='male' GROUP BY gender";
+    $statementselect=$connection->prepare($query_select);
+    $statementselect_male=$connection->prepare($query_select_male);
+    $statementselect->execute();
+    $statementselect_male->execute();
+    $row = $statementselect->fetch();
+    $row_male = $statementselect_male->fetch();
+    $tab["female"]=$row["percentage"];
+    $tab["male"]=$row_male["percentage"];
+    echo json_encode($tab);

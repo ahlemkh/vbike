@@ -1,11 +1,7 @@
 <?php
-error_reporting(E_STRICT);
-$HOST='eu-central.connect.psdb.cloud';
-$USERNAME='jrwdj1lvec0b6nmggu0f';
-$PASSWORD='pscale_pw_xcaQa77LUySApLCiNkRJM1XycOE6KtejqAPHmP9kBJ4';
-$DATABASE='bike_rental';
-$options = array(
+$dsn = "mysql:host={$_ENV['HOST']};dbname={$_ENV['DATABASE']}";
+  $options = array(
     PDO::MYSQL_ATTR_SSL_CA => "/etc/ssl/certs/ca-certificates.crt",
   );
-$connection=new PDO('mysql:host='.$HOST.';db_name='.$DATABASE,
-$USERNAME,$PASSWORD,$options);
+
+  $pdo = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_STRICT);
 $HOST='eu-central.connect.psdb.cloud';
 $USERNAME='jrwdj1lvec0b6nmggu0f';
 $PASSWORD='pscale_pw_xcaQa77LUySApLCiNkRJM1XycOE6KtejqAPHmP9kBJ4';

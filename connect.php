@@ -4,4 +4,4 @@ $dsn = "mysql:host={$_ENV['HOST']};dbname={$_ENV['DATABASE']}";
     PDO::MYSQL_ATTR_SSL_CA => "/etc/ssl/cert.pem",
   );
 
-  $pdo = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);
+  $connection = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);
